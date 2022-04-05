@@ -3,7 +3,8 @@
 <script lang="ts">
 	// import { marked } from "../node_modules/marked/lib/marked.esm.js";
 	import marked from 'marked';
-	const placeholder:string = `# Welcome to my React Markdown Previewer!
+	
+	let markdown:string = `# Welcome to my React Markdown Previewer!
 
 ## This is a sub-heading...
 ### And here's some other cool stuff:
@@ -48,21 +49,15 @@ And here. | Okay. | I think we get it.
 ![freeCodeCamp Logo](https://cdn.freecodecamp.org/testable-projects-fcc/images/fcc_secondary.svg)
 `;
 
-	let markdown:string = placeholder;
 	// The $: below forces this variable to update whenever the referenced value (markdown) changes
 	$: renderedMarkdown = marked(markdown, {sanitize: true});
 
-	function initialMarkdown() {
-		markdown = placeholder;
-	}
 </script>
 
 <!-- Change Tab Title-->
 <svelte:head>
 	<title>Markdown Previewer</title>
 </svelte:head>
-<svelte:window on:load={initialMarkdown} />
-
 
 <!-- HTML-->
 <main>
