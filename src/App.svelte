@@ -1,9 +1,8 @@
 <!-- Svelte/js -->
 
 <script lang="ts">
-	import marked from "marked";
-	let markdown:string;
-	let renderedMarkdown:string;
+	// import { marked } from "../node_modules/marked/lib/marked.esm.js";
+	import marked from 'marked';
 	const placeholder:string = `# Welcome to my React Markdown Previewer!
 
 ## This is a sub-heading...
@@ -49,23 +48,13 @@ And here. | Okay. | I think we get it.
 ![freeCodeCamp Logo](https://cdn.freecodecamp.org/testable-projects-fcc/images/fcc_secondary.svg)
 `;
 
+	let markdown:string = placeholder;
+	// The $: below forces this variable to update whenever the referenced value (markdown) changes
+	$: renderedMarkdown = marked(markdown, {sanitize: true});
+
 	function initialMarkdown() {
 		markdown = placeholder;
-		renderedMarkdown = renderMarkdown(markdown);
 	}
-
-	function handleChange(e) {
-		markdown = e.target.value;
-	}
-
-	function renderMarkdown(markdown) {
-		return marked(markdown, {
-			sanitize: true
-		});
-		return "cats"
-		//return "No render function yet assigned";
-	}
-
 </script>
 
 <!-- Change Tab Title-->
@@ -79,9 +68,9 @@ And here. | Okay. | I think we get it.
 <main>
 	<h1>Welcome to my Markdown Previewer</h1>
 	<h2>Editor</h2>
-	<textarea id="editor">{markdown}</textarea>
+	<textarea id="editor" bind:value={markdown}></textarea>
 	<h2>Preview</h2>
-	<div id="preview">{renderedMarkdown}</div>
+	<div id="preview">{@html renderedMarkdown}</div>
 
 </main>
 
