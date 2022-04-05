@@ -1,8 +1,7 @@
 <!-- Svelte/js -->
 
 <script lang="ts">
-	// import { marked } from "../node_modules/marked/lib/marked.esm.js";
-	import marked from 'marked';
+	import { marked } from "../node_modules/marked/lib/marked.esm.js";
 	// Initial default text
 	let markdown:string = `# Welcome to my React Markdown Previewer!
 
@@ -63,11 +62,14 @@ And here. | Okay. | I think we get it.
 
 <!-- HTML-->
 <main>
-	<h1>Welcome to my Markdown Previewer</h1>
+	<h1>Markdown Preview</h1>
 	<h2>Editor</h2>
 	<textarea id="editor" bind:value={markdown}></textarea>
 	<h2>Preview</h2>
 	<div id="preview">{@html renderedMarkdown}</div>
+	<footer>
+		<a href="https://quargle.github.io/Portfolio/" target="_blank">Portfolio</a>
+	</footer>
 </main>
 
 
@@ -78,10 +80,10 @@ And here. | Okay. | I think we get it.
 		height: 100vh;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: space-evenly;
 		align-items: center;
 		margin: 0;
-		background-color: rgb(91, 153, 228);
+		background-color: rgb(230, 230, 230);
 	}
 
 	h1 {
@@ -116,5 +118,14 @@ And here. | Okay. | I think we get it.
 		border: 1px solid #ccc;
 		padding: 1rem;
 		overflow-y: scroll;
+	}
+
+	footer {
+		padding: 1rem;
+	}
+
+	a {
+		text-decoration: none;
+		color: black;
 	}
 </style>
