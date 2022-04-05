@@ -3,7 +3,7 @@
 <script lang="ts">
 	// import { marked } from "../node_modules/marked/lib/marked.esm.js";
 	import marked from 'marked';
-	
+	// Initial default text
 	let markdown:string = `# Welcome to my React Markdown Previewer!
 
 ## This is a sub-heading...
@@ -54,10 +54,12 @@ And here. | Okay. | I think we get it.
 
 </script>
 
+
 <!-- Change Tab Title-->
 <svelte:head>
 	<title>Markdown Previewer</title>
 </svelte:head>
+
 
 <!-- HTML-->
 <main>
@@ -66,7 +68,6 @@ And here. | Okay. | I think we get it.
 	<textarea id="editor" bind:value={markdown}></textarea>
 	<h2>Preview</h2>
 	<div id="preview">{@html renderedMarkdown}</div>
-
 </main>
 
 
@@ -114,11 +115,5 @@ And here. | Okay. | I think we get it.
 		border: 1px solid #ccc;
 		padding: 1rem;
 		overflow-y: scroll;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
 	}
 </style>
