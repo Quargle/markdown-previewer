@@ -81,6 +81,7 @@ And here. | Okay. | I think we get it.
 		justify-content: center;
 		align-items: center;
 		margin: 0;
+		background-color: rgb(91, 153, 228);
 	}
 
 	h1 {
