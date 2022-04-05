@@ -1,7 +1,8 @@
 <!-- Svelte/js -->
 
 <script lang="ts">
-	import { marked } from "../node_modules/marked/lib/marked.esm.js";
+	//import { marked } from "../node_modules/marked/lib/marked.esm.js";
+	import {marked} from 'marked';
 	// Initial default text
 	let markdown:string = `# Welcome to my React Markdown Previewer!
 
